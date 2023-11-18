@@ -1,0 +1,66 @@
+﻿using System;
+
+namespace Program
+{
+    public class TCube : TSquareF
+    {
+        protected readonly string _color;
+
+        public TCube() : base()
+        {
+            _color = "No color";
+        }
+
+        public TCube(double sideLength, string color) : base(sideLength)
+        {
+            _color = color;
+        }
+
+        public TCube(TCube otherCube) : base(otherCube._sideLength)
+        {
+            _color = otherCube._color;
+        }
+        
+        protected override double CalculateArea()
+        {
+            return 6 * Math.Pow(_sideLength, 2);
+        }
+
+        protected override double CalculatePerimeter()
+        {
+            return 12 * _sideLength;
+        }
+
+        private double CalculateVolume()
+        {
+            return Math.Pow(_sideLength, 3);
+        }
+
+        public override string ToString()
+        {
+            return $"Куб зі стороною: {_sideLength}";
+        }
+
+        public override void DisplayData()
+        {
+            Console.WriteLine($"{ToString()}\nПлоща: {CalculateArea()}\nПериметр: {CalculatePerimeter()}\nОб’єм: {CalculateVolume()}");
+        }
+        
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            TCube otherCube = (TCube)obj;
+
+            return CompareTo(otherCube) && _color == otherCube._color;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
+}

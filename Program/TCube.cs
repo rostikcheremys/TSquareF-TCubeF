@@ -4,7 +4,7 @@ namespace Program
 {
     public class TCube : TSquareF
     {
-        protected readonly string _color;
+        public string _color;
 
         public TCube() : base()
         {
@@ -35,6 +35,11 @@ namespace Program
         {
             return Math.Pow(_sideLength, 3);
         }
+        
+        protected bool CompareTo(TCube otherSquare)
+        {
+            return _color == otherSquare._color;
+        }
 
         public override string ToString()
         {
@@ -55,7 +60,7 @@ namespace Program
 
             TCube otherCube = (TCube)obj;
 
-            return CompareTo(otherCube) && _color == otherCube._color;
+            return CompareTo(otherCube);
         }
 
         public override int GetHashCode()

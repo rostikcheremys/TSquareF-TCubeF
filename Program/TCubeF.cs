@@ -15,7 +15,7 @@
 
             TCubeF otherCubeF = (TCubeF)obj;
 
-            return CompareTo(otherCubeF) && _color == otherCubeF._color;
+            return CompareTo(otherCubeF);
         }
 
         public override int GetHashCode()

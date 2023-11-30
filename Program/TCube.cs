@@ -4,7 +4,7 @@ namespace Program
 {
     public class TCube : TSquareF
     {
-        public string _color;
+        private readonly string _color;
 
         public TCube() : base()
         {

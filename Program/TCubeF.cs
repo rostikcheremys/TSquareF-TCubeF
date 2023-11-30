@@ -2,9 +2,7 @@
 {
     public class TCubeF : TCube
     {
-        public TCubeF(double sideLength, string color) : base(sideLength, color)
-        {
-        }
+        public TCubeF(double sideLength, string color) : base(sideLength, color) { }
 
         public override bool Equals(object obj)
         {

@@ -53,14 +53,8 @@ namespace Program
         
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            TCube otherCube = (TCube)obj;
-
-            return CompareTo(otherCube);
+            if (obj is TCube that) return CompareTo(that);
+            return false;
         }
 
         public override int GetHashCode()

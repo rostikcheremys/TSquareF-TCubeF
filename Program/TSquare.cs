@@ -78,14 +78,8 @@ namespace Program
         
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            TSquare otherSquare = (TSquare)obj;
-            
-            return CompareTo(otherSquare);
+            if (obj is TSquare that) return CompareTo(that);
+            return false;
         }
 
         public override int GetHashCode()
